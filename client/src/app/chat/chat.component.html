@@ -1,44 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="col-9 chat-dashboard">
-      <div class="row active-member" *ngIf="activeMember">
-        <div class="col-3 active-member-image">
-          <img src={{activeMember.image}} alt="Image of active user" width="174px">
-        </div>
-        <div class="col-9 active-member-description">
-          <h4>{{activeMember.name}}</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-            magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-            nisl ut aliquip ex ea commodo consequat.</p>
+<div class="container mb-3 mt-3 rounded">
+  <div class="row chat-container">
+    <div class="col-9 p-0 chat-container__main">
+      <div class="media active-member p-0 " *ngIf="activeMember">
+        <img class="mr-3" src="http://pantikapei.ru/wp-content/uploads/2012/03/11b442d2c9ef.jpg" alt="Avatar of your interlocator"
+          width="150px">
+        <div class="media-body">
+          <h4 class="mt-2">{{activeMember.name}}</h4>
+          {{activeMember?.description}}
         </div>
       </div>
-      <div class="row">
-        <div class="col-10">
-          <div *ngFor="let message of serverMessages" [ngClass]="isMine(message)? 'card my-answer': 'card other'">
-            <div class="card-header" *ngIf="isMine(message); else sender">
-              <span>me:</span>
-              <span></span>
+
+      <div class="row message-dashboard">
+        <div *ngFor="let message of serverMessages" class="col-10 message-dashboard-content">
+          <div class="card" [ngClass] = "isMine(message) ? 'my-answer' :'others'" >
+            <div class="card-header p-1" *ngIf="isMine(message); else sender">
+              <span>You:</span>
             </div>
             <ng-template #sender>
-              <div class="card-header" *ngIf="message.sender">{{message.sender.name}}:</div>
+              <div class="card-header p-2" *ngIf="message.sender">{{message.sender.name}}:</div>
             </ng-template>
-            <div class="card-body">
+            <div class="card-body p-2">
               <span>{{message.content}}</span>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="activeMember" class="form-row align-items-center">
-        <div class="col-7">
-          <input class="form-control" type="text" [(ngModel)]='msg' placeholder="Start chatting!">
+
+
+      <div class="form-inline" *ngIf="activeMember">
+        <div class="form-group mb-3 col-9">
+          <label for="send" class="sr-only">Start chatting</label>
+          <input type="text" class="form-control col-12" id="send" [(ngModel)]='msg' 
+                  placeholder="Start chatting!">
         </div>
-        <div class="col">
-          <button type="button" class="btn btn-primary" (click)='send()'>Send message</button>
-        </div>
+        <button type="button" class="btn btn-primary mb-3 col mr-3" (click)='send()'>Send message</button>
       </div>
     </div>
-    <div class="col-3 chat-sidebar">
+    <div class="col-3 chat-sidebar p-0">
       <app-chat-sidebar [members]="members" (memberClick)="getActive($event)"></app-chat-sidebar>
     </div>
   </div>
-</div>

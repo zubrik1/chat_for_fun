@@ -1,13 +1,20 @@
-.chat {
-  min-height: 100vh;
-  background-color: #586670;
+.chat{
+    min-height: 100vh;
+    background-color: #586670;
+    display: flex;
+    flex-direction: column;
+}
+app-chat{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background-color: #4c575e;
+    color:#dddcdc;
+    font-weight: 600;
+}
+.container{
+    padding-left: 0;
 }
 
-header {
-  background-color: #fff;
-}
-
-header .container {
-  padding: 10px 0px;
-  font-weight: 600;
-}
