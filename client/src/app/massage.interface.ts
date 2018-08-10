@@ -3,7 +3,6 @@ export interface Member {
   image: string;
   isOnline: boolean;
 }
-
 export class Message {
   constructor(
     public content: string,

@@ -1,37 +1,39 @@
 <div class="container">
-    <ul class="nav nav-tabs nav-fill">
-        <li class="nav-item" (click) = "getOnlineList()">
-          <a [ngClass]="isOnlineList ? ' nav-link active' : 'nav-link left'">Online</a>
-        </li>
-        <li class="nav-item" (click) = "getAllList()">
-          <a [ngClass]="isOnlineList ? 'nav-link right' : 'nav-link active'">All</a>
-        </li>
+  <ul class="nav nav-tabs nav-fill">
+    <li class="nav-item" (click)="getOnlineList()">
+      <a [ngClass]="isOnlineList ? ' nav-link active' : 'nav-link left'">Online</a>
+    </li>
+    <li class="nav-item" (click)="getAllList()">
+      <a [ngClass]="isOnlineList ? 'nav-link right' : 'nav-link active'">All</a>
+    </li>
   </ul>
 
   <ul class="list-group">
-    <li *ngFor="let member of getOnlineMembersList()" 
-        class="row list-group-item-action"
-        (click) = "getActive(member)">
+    <li *ngFor="let member of getOnlineMembersList()" class="row list-group-item-action" (click)="getActive(member)">
       <div class="col-4">
         <div class="member-image-container">
           <img src={{member.image}} class="rounded" width="90%">
-          <span *ngIf ="member.isOnline" class="member-online"></span>
+          <span *ngIf="member.isOnline" class="member-online"></span>
         </div>
       </div>
       <div class="col-7 member-description">
         <h6 class="member-description__name">{{member.name}}</h6>
         <div class="member-description__text">
-            <div>
-                <p>Lorem ipsum dolor sit amet, nonumy consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            </div>
+          <div>
+            <p>Lorem ipsum dolor sit amet, nonumy consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+              lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+              velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+              odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+          </div>
         </div>
-        </div>
+      </div>
     </li>
   </ul>
 
-  <div class = "row">
-    <div class = "search-container col-11">
-        <input  class = "form-control" #member (input) = "findMember(member.value)" type = "search" placeholder = "Search...">
+  <div class="row">
+    <div class="search-container col-11">
+      <input class="form-control" #member (input)="findMember(member.value)" type="search" placeholder="Search...">
     </div>
   </div>
 

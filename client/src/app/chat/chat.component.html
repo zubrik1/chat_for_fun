@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row">
     <div class="col-9 chat-dashboard">
       <div class="row active-member" *ngIf="activeMember">
@@ -13,8 +12,6 @@
             nisl ut aliquip ex ea commodo consequat.</p>
         </div>
       </div>
-
-
       <div class="row">
         <div class="col-10">
           <div *ngFor="let message of serverMessages" [ngClass]="isMine(message)? 'card my-answer': 'card other'">
@@ -22,18 +19,15 @@
               <span>me:</span>
               <span></span>
             </div>
-
             <ng-template #sender>
               <div class="card-header" *ngIf="message.sender">{{message.sender.name}}:</div>
             </ng-template>
-
             <div class="card-body">
               <span>{{message.content}}</span>
             </div>
           </div>
         </div>
       </div>
-
       <div *ngIf="activeMember" class="form-row align-items-center">
         <div class="col-7">
           <input class="form-control" type="text" [(ngModel)]='msg' placeholder="Start chatting!">
@@ -42,9 +36,7 @@
           <button type="button" class="btn btn-primary" (click)='send()'>Send message</button>
         </div>
       </div>
-
     </div>
-
     <div class="col-3 chat-sidebar">
       <app-chat-sidebar [members]="members" (memberClick)="getActive($event)"></app-chat-sidebar>
     </div>

@@ -7,7 +7,7 @@ import { Message, Member} from '../massage.interface';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent {
 
   msg = '';
   members = [];
@@ -41,8 +41,6 @@ export class ChatComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
   send(): void {
     const messageToSend = this.msg.trim();
 

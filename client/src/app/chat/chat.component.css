@@ -1,80 +1,91 @@
-.container{
-   margin-top: 20px;
-   height: calc(100% - 100px);
-}
-.chat-dashboard{
-    background-color: #d7dfe7;
-}
-.chat-sidebar{
-    padding: 0px;
-}
-.active-member{
-    background-color: #becbd9;
-}
-.active-member-image{
-    padding: 0px;
+.container {
+  margin-top: 20px;
+  height: calc(100% - 100px);
 }
 
-.flex{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-grow: 1;
+.chat-dashboard {
+  background-color: #d7dfe7;
 }
 
-.active-member-description{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0px;
-
-}
-.active-member-description h4{
-    margin: 0;
-    font-weight: 600;
-}
-.active-member-description p{
-    line-height: 1.2;
-}
-.card{
-    box-shadow:  3px 3px 9px #aaa;
-    margin: 15px;
+.chat-sidebar {
+  padding: 0px;
 }
 
-.card-body, .card-header{
-    padding: 5px;
-    border-color: transparent;
+.active-member {
+  background-color: #becbd9;
 }
-.my-answer .card-body, other .card-body{
-    position: relative;
+
+.active-member-image {
+  padding: 0px;
 }
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.active-member-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+}
+
+.active-member-description h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.active-member-description p {
+  line-height: 1.2;
+}
+
+.card {
+  box-shadow: 3px 3px 9px #aaa;
+  margin: 15px;
+}
+
+.card-body,
+.card-header {
+  padding: 5px;
+  border-color: transparent;
+}
+
+.my-answer .card-body,
+other .card-body {
+  position: relative;
+}
+
 .right {
-    align-self: flex-end;
-}
-.my-answer .card-header{
-    background-color: #f0cbb3;
-    color: #794422;
-}
-.other .card-header{
-    background-color: #becbd9;
-    color: #323233;
+  align-self: flex-end;
 }
 
-.my-answer::after{
-    position: absolute;
-    content: '';
-    right: -18px; 
-    bottom: 8px;
-    border: 8px solid transparent;
-    border-left: 10px solid #fff;
-
+.my-answer .card-header {
+  background-color: #f0cbb3;
+  color: #794422;
 }
-.other::after{
-    position: absolute;
-    content: '';
-    left: -18px; 
-    bottom: 8px;
-    border: 8px solid transparent;
-    border-right: 10px solid #fff;
 
+.other .card-header {
+  background-color: #becbd9;
+  color: #323233;
+}
+
+.my-answer::after {
+  position: absolute;
+  content: '';
+  right: -18px;
+  bottom: 8px;
+  border: 8px solid transparent;
+  border-left: 10px solid #fff;
+}
+
+.other::after {
+  position: absolute;
+  content: '';
+  left: -18px;
+  bottom: 8px;
+  border: 8px solid transparent;
+  border-right: 10px solid #fff;
 }

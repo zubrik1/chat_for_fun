@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chat-sidebar',
@@ -6,28 +6,27 @@ import { Component, OnInit, Input, Output, EventEmitter, } from '@angular/core';
   styleUrls: ['./chat-sidebar.component.css']
 })
 export class ChatSidebarComponent implements OnInit {
+  @Input()
+  members: { name: string; image: string; isOnline: boolean }[];
+  @Output()
+  memberClick = new EventEmitter<boolean>();
 
-@Input() members: {name: string, image: string, isOnline: boolean}[] ;
-@Output() memberClick = new EventEmitter<boolean>();
+  isOnlineList = true;
+  searchValue: string;
 
-isOnlineList = true;
-searchValue: string;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getOnlineMembersList() {
-   return  this.searchValue
-    ? this.members.filter((member) => {
-      const name = member.name.toLowerCase();
-      return name.indexOf(this.searchValue.toLowerCase()) !== -1;
-    })
-    : this.isOnlineList === true ?
-      (this.members.filter((member) => member.isOnline === true))
-    : this.members;
-
+    return this.searchValue
+      ? this.members.filter(member => {
+          const name = member.name.toLowerCase();
+          return name.indexOf(this.searchValue.toLowerCase()) !== -1;
+        })
+      : this.isOnlineList === true
+        ? this.members.filter(member => member.isOnline === true)
+        : this.members;
   }
 
   findMember(name) {
@@ -44,7 +43,4 @@ searchValue: string;
   getActive(member) {
     this.memberClick.emit(member);
   }
-
 }
-
-
