@@ -1,0 +1,11 @@
+.chat{
+    min-height: 100vh;
+    background-color: #586670;
+}
+header{
+    background-color: #fff;
+}
+header .container{
+    padding: 10px 0px;
+    font-weight: 600;
+}

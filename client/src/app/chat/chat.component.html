@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-9 chat-dashboard">
+      <div class="row active-member" *ngIf="activeMember">
+        <div class="col-3 active-member-image">
+          <img src={{activeMember.image}} alt="Image of active user" width="174px">
+        </div>
+        <div class="col-9 active-member-description">
+          <h4>{{activeMember.name}}</h4>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+            magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            nisl ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-10">
+          <div *ngFor="let message of serverMessages" [ngClass]="isMine(message)? 'card my-answer': 'card other'">
+            <div class="card-header" *ngIf="isMine(message); else sender">
+              <span>me:</span>
+              <span></span>
+            </div>
+
+            <ng-template #sender>
+              <div class="card-header" *ngIf="message.sender">{{message.sender.name}}:</div>
+            </ng-template>
+
+            <div class="card-body">
+              <span>{{message.content}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeMember" class="form-row align-items-center">
+        <div class="col-7">
+          <input class="form-control" type="text" [(ngModel)]='msg' placeholder="Start chatting!">
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary" (click)='send()'>Send message</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-3 chat-sidebar">
+      <app-chat-sidebar [members]="members" (memberClick)="getActive($event)"></app-chat-sidebar>
+    </div>
+  </div>
+</div>
